@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Resume Page</title>
+        <link rel="shortcut icon" href="img/logo.png" />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/jquery.js" type="text/javascript" ></script>
+        <script src="js/bootstrap.min.js" type="text/javascript"></script>
+        <style type="text/css">@import"css/bootstrap.min.css" </style>
+        <link rel="stylesheet" href="css/main.min.css" />
+        <link rel="stylesheet" href="css/footer-distributed-with-address-and-phones.css" type="text/css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+
+
+        <script type="text/javascript" >
+
+            //some constant values
+            //responsive heights
+            var refHieght = 623;
+            var defHieght = 300;
+            var wkHieght = 480;
+            var skHieght = 742;
+
+            //function that animates resume section
+            /*
+             * This function  will fire an event -> link  
+             * hide all the elements in the article element
+             * add a class to the link.parent() 
+             * fadeOut all and fadeIn -> target
+             */
+
+            function animateResume(link, target, e) {
+                $("#" + link).click(function (e) {
+                    $("li").removeClass("active");
+                    $("#" + link).parent("li").addClass("active");
+                    $("#" + link).parent("li").addClass("");
+                    $("article").fadeOut(350);
+                    $("article#" + target.toString()).fadeIn(630);
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                });
+            }
+            //Creating section's dynamic height
+            function responsiveHeight(targetId, height) {
+                $("#" + targetId).click(function () {
+
+                    $('section').css("height", height);
+                });
+            }
+            $(window).ready(function () {
+                if (window.ActiveXObject) {
+                    $("#arsk").html("&#8658;");
+                } else {
+                    $("#arsk").html("&DoubleRightArrow;");
+                }
+
+            });
+            //start up
+            //-----------------------------------------
+            function init() {
+                //responsive designing FINISHED!!!!
+                var viewport = $(window).width();
+                if (viewport < 786) {
+                    responsiveHeight("ref", refHieght);
+                    responsiveHeight('pm', defHieght);
+                    responsiveHeight("we", wkHieght);
+                    responsiveHeight("edu", defHieght);
+                    responsiveHeight("sk", skHieght);
+                } else if (viewport > 992) {
+                    $('body').css('height', "");
+                } else if (viewport > 786 && viewport < 992) {
+                    $('body').css('height', "");
+                } else {
+                    $('body').css('height', "");
+                }
+
+                $("article").css("display", "none");
+                $("article#address").fadeIn(100);
+                responsiveHeight("ref", refHieght);
+                responsiveHeight('pm', defHieght);
+                responsiveHeight("we", wkHieght);
+                responsiveHeight("edu", defHieght);
+                responsiveHeight("sk", skHieght);
+            }
+            //----------------------------------------
+            $(document).ready(function (e) {
+                //init
+                init();
+
+                //---------------- resume portion ----------------
+
+
+                animateResume("we", "work_experience", e);
+                animateResume("pm", "address", e);
+                animateResume("sk", "skills", e);
+                animateResume("edu", "cert_academic", e);
+                animateResume("ref", "referee", e);
+                //-------------------end of portion --------------
+            });
+        </script>
+        <style type="text/css">
+
+            li > a{
+                border-bottom: 2px solid #333;
+            }
+            li > a:hover{
+                border-bottom:2px solid #5383d3;
+                z-index: 1;
+            }
+            li > a:active{
+                border-bottom:2px solid  #ffc000;
+                z-index: 1;
+            }
+
+            .link_active{
+                color: #fff;
+                border-bottom:2px solid #ffc000;
+                z-index: 1;
+            }
+            #top{
+
+                background-repeat: no-repeat;
+                background-image: url(img/keyboard.jpg);
+            }
+        </style>
+
+    </head>
+    <body>
+
+        <div id="top">
+            <div class="container"></div>
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">             
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#tg">
+                            <span class="sr-only" >Toggle navigation </span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="http://resume-williamkyere.rhcloud.com" style="color:#FFF">William<i style="color: #5383d3;">Donkor</i></a>
+                    </div>
+                    <div class="collapse navbar-collapse navbar-right" id="tg">
+                        <ul class="nav navbar-nav">
+                            <li><a href="index.html">Home<span class="sr-only">(current)</span></a></li>
+                            <li><a class="link_active" href="resume.html">Resume<span class="sr-only">(current)</span></a></li>
+                            <li><a href="contact.html">Contact<span class="sr-only">(current)</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav> 
+            <script type="text/javascript">
+                function headerhandler() {
+                    $("#header").click(function () {
+                        window.location.href = "contact.html";
+                    });
+                }
+            </script>
+            <header class="container page-header">
+                <h1 class="h2" style="color: #fff;">Welcome to <span style="font-family: Cookie">WILLIAM</span><span style="font-family: Cookie;color: #5383D3">Donkor.com</span></h1>
+                <button class="btn btn-info btn-sm" type="button" style="opacity: 0.8" id ="header" onclick="headerhandler()"><span style="font: bold 18px cookie"><span style="opacity: 1;color: #fff"> Contact Page</span><span id="arsk"></span></button>
+
+            </header>
+        </div>
+        <div role="navigation">
+            <nav class=" container col-md-8 col-md-offset-2">
+                <ul class="nav nav-tabs ">
+                    <li role="presentation" class="active"><a href="#address" id="pm"> Personal Information<span class="sr-only">(current)</span></a></li>
+                    <li role="presentation"><a href="#work_experience" id="we">Work Experience<span class="sr-only">(current)</span></a></li> 
+                    <li role="presentation"> <a href="#cert_academic" id="edu">Education &amp;Certification<span class="sr-only">(current)</span></a></li>
+                    <li role="presentation"><a href="#skills" id="sk"> Professional Skills<span class="sr-only">(current)</span></a></li>
+                    <li role="presentation" ><a href="#referee" id="ref">Academic Referees<span class="sr-only">(current)</span></a></li>
+                </ul>
+            </nav>
+        </div>
+        <!-- ......................section begins................................. -->
+
+
+        <div class="container">
+
+            <section class="col-md-8 col-md-offset-2" style="height: 300px;margin-top: 30px;">
+                <article id="address">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h4 class="restil">DONKOR KYERE WILLIAM</h4>
+                            <address class="">
+                                Mr Owusu Bempah  Post Office Box ks 8621 Adum  Kumasi 0236305878    williamkyere@gmail.com       
+ 
+                            </address>
+                        </div>
+                        <div class="panel-body">
+                            <div class="panel-title"><span class="restil">Personal Profile</span></div>
+                            A highly motivated Computer Science graduate with a keen interest in technology and business as well as a high level of experience in computer networking. Consistently working to the highest professional standards drawing on experience and a wide range of technical expertise. Additionally an effective team player with excellent communication and organizational skills combined with a desire to succeed 
+                        </div>
+                    </div>
+
+                </article>
+                <article id="work_experience">
+                    <!--fix panel later -->
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <span class="restil">
+                                Administration Of Stool Lands Offinso North District (September, 2011 - August 2012),
+                                Office Assistant.
+                            </span>
+                            Office Assistant
+                        </div>
+                        <div class="panel-body">
+                            <ul class="list-group">
+                                <li  class="list-group-item"> Educated the on the benefits of ground rents and leases</li>
+                                <li class="list-group-item">Ground rent revenue collection and the issuing of receipts</li>
+                                <li class="list-group-item"> Performed monthly reports.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="panel panel-primary">
+
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <span class="restil">Kumasi Polytechnic ICT Unit (July 2009 - Sept 2009),  </span>
+                                <div class="panel-title"> Computer Hardware Technician</div>
+
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <ul class="list-group">
+                                <li  class="list-group-item">Hardware troubleshooting and repairs.</li>
+                                <li  class="list-group-item">Windows operating systems installation</li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+
+                </article>
+                <article id="cert_academic">
+                    <div class="panel panel-primary">
+                        <div class =" panel-heading">Cisco Certified Network Associate
+                            <div class="panel-title restil">Cisco Academy, Kumasi Polytechnic Campus 2013</div>
+                        </div>
+                        <div class="panel-body">
+                            Obtained a Cisco Certified Network Associate certification 
+                        </div>
+                    </div>
+
+                    <div class="panel panel-primary">
+                        <div class =" panel-heading">HND COMPUTER SCIENCE
+                            <div class="panel-title restil">Kumasi Polytechnic 2008 - 2011</div>
+                        </div>
+                        <div class="panel-body">
+                            Obtained a Higher National Diploma (HND) in Computer Science with specialization in 
+                            programming and networking.
+                        </div>
+                    </div>
+                    <div class="panel panel-primary">
+                        <div class =" panel-heading">GENERAL SCIENCE
+                            <div class="panel-title restil">Kumasi Academy 2004 - 2007</div>
+                        </div>
+                        <div class="panel-body">
+                            Obtained a West African Secondary School Certificate Examination (WASSCE)
+                            in General Science 
+                        </div>
+                    </div>
+
+                </article>
+
+                <article id="skills">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading restil"><a style="color:white" href="#prog">PROGRAMMING</a> </div>
+                        <div class="panel-body">
+                            <ul class="list-group" id="prog">
+                                <li class="list-group-item"> Java Programming</li>
+                                <li class="list-group-item">Object Relation Modeling using Hibernate-ORM</li>
+                                <li class="list-group-item">Relational Databases Using MySQL</li>
+                                <li class="list-group-item">WEB Programming Using <abbr>HTML</abbr> <abbr>CSS </abbr>JAVASCRIPT JQUERY and BOOTSTRAP </li>
+                                <li class="list-group-item">Linux Operating systems for Development</li>
+                                <li class="list-group-item">Familiarity with C++ Programming Language</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading"><a style="color:white" href="#net">COMPUTER NETWORKING</a></div>
+                        <div class="panel-body">
+                            <ul class="list-group" id="net">
+                                <li class="list-group-item">IPv6 and IPV4 addressing</li>
+                                <li class="list-group-item">Router and Switch Configuration</li>
+                                <li class="list-group-item">WAN &amp;LAN networking</li>
+                                <li class="list-group-item">Wireless Network Installation</li>
+                                <li class="list-group-item">Computer Hardware Upgrades</li>
+                                <li class="list-group-item">Windows Server 2008 and 2012 DNS</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <article id="referee">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading restil">
+                            <abbr> MR.</abbr> ANDERSON ENOCH
+                            <div class="panel-title">Lecturer, Industrial Attachment Supervisor, <abbr>CCNA</abbr> Trainer </div>
+                        </div>
+                        <div class="panel-body">
+                            <ul class="list-group">
+                                <li class="list-group-item">Infrastructure Head</li>
+                                <li class="list-group-item"><abbr>ICT Directorate</abbr></li>
+
+                                <li class="list-group-item">Kumasi Polytechnic </li>
+
+                                <li class="list-group-item">Tel: 0242272255 </li>
+                                <li class="list-group-item">Email: 
+                                    <a  class="active" style="border-bottom: none" href="mailto:Enokia@yahoo.com">   Enokia@yahoo.com</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading" > MRS. ABOAGYE EMELIA
+                            <div class="panel-title">Lecturer, Project Supervisor</div>
+                        </div>
+                        <div class="panel-body">
+                            <ul class="list-group">
+                                <li class="list-group-item">Lecturer</li>
+                                <li  class="list-group-item">Computer Science Department </li>
+
+                                <li class="list-group-item">Kumasi Polytechnic</li>
+
+                                <li class="list-group-item">Tel: 0265158580/0244708108 </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+            </section>
+        </div>
+
+
+
+        <footer class="footer-distributed">
+
+            <div class="footer-left">
+
+                <h3>william<span>donkor</span></h3>
+                <p class="footer-links">
+                    <a href="index.html">Home</a>
+                    ·
+                    <a href="resume.html">Resume</a>
+                    ·
+                    <a href="contact.html">Contact</a>
+                </p>
+
+                <p class="footer-company-name">William Donkor &copy; 2015</p>
+            </div>
+
+            <div class="footer-center">
+
+                <div>
+                    <i class="fa fa-map-marker"></i>
+                    <p> Kumasi , Ghana</p>
+
+                </div>
+
+                <div>
+                    <i class="fa fa-phone"></i>
+                    <p>+233 236395878</p>
+                </div>
+
+                <div>
+                    <i class="fa fa-envelope"></i>
+                    <p><a href="mailto:williamkyere@gmail.com">williamkyere@gmail.com</a></p>
+                </div>
+
+            </div>
+
+            <div class="footer-right">
+
+                <p class="footer-company-about">
+                    <span>Summary</span>
+                    A highly skilled IT Professional with expertise in Web Application and Network Engineering
+                </p>
+
+                <div class="footer-icons">
+
+                    <a href="https://www.facebook.com/william.donkor.94" target=_blank><i class="fa fa-facebook"></i></a>
+                    <a href="https://twitter.com/odonkatae" target=_blank><i class="fa fa-twitter"></i></a>
+                    <a href="https://gh.linkedin.com/pub/william-donkor/80/230/3b1" target=_blank><i class="fa fa-linkedin"></i></a>
+                    <a href="https://github.com/williamkyere" target= _blank><i class="fa fa-github"></i></a>
+
+                </div>
+
+            </div>
+
+        </footer>
+    </body>
+
+</html>

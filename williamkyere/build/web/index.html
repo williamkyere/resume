@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Welcome To William's Website</title>
+        <link rel="shortcut icon" href="img/logo.png" />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/jquery.js" type="text/javascript" ></script>
+
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="css/footer-distributed-with-address-and-phones.css" type="text/css">
+
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+
+        <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+
+        <script src="js/bootstrap.min.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="css/main.min.css" />
+        <style type="text/css">
+
+            li > a{
+                border-bottom: 2px solid #333;
+            }
+            li > a:hover{
+                border-bottom:2px solid #5383d3;
+                z-index: 1;
+            }
+            li > a:active{
+                border-bottom:2px solid  #ffc000;
+                z-index: 1;
+            }
+
+            .link_active{
+
+                border-bottom:2px solid #ffc000;
+                z-index: 1;
+            }
+            article,div{
+                text-align: justify;
+            }
+            article{
+                padding: 5px;
+                //  font-size: 14px;
+                line-height: 1.9em;
+                letter-spacing: 0.3px;
+            }
+
+            #top{
+
+                background-repeat: no-repeat;
+                background-image: url(img/keyboard.jpg);
+
+            }
+        </style>
+
+        <script type="text/javascript" >
+            $(window).ready(function () {
+                if (window.ActiveXObject) {
+                    $("#arsk").html("&#8658;");
+                } else {
+                    $("#arsk").html("&DoubleRightArrow;");
+                }
+
+            });
+
+        </script>
+    </head>
+    <body>
+        <!-- .......  main container ........ -->
+
+        <div id="top" style ="width: 100%;">
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">             
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#tg">
+                            <span class="sr-only" >Toggle navigation </span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="http://resume-williamkyere.rhcloud.com" style="color:#FFF">William<i style="color: #5383d3;">Donkor</i></a>
+                    </div>
+                    <div class="collapse navbar-collapse navbar-right" id="tg">
+                        <ul class="nav navbar-nav">
+                            <li><a class="link_active" href="index.html">Home<span class="sr-only">(current)</span></a></li>
+                            <li><a href="resume.html">Resume<span class="sr-only">(current)</span></a></li>
+                            <li><a href="contact.html">Contact<span class="sr-only">(current)</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav> 
+            <!-- .........handles the buttons click event ---->
+            <script type="text/javascript">
+                function headerhandler() {
+                    $("#header").click(function (e) {
+                        // e.preventDefault();
+                        e.stopPropagation();
+                        window.location.href = "resume.html";
+                    });
+                }
+            </script>
+            <header class="container page-header">
+                <h1 class="h2" style="color: #fff;">Welcome to <span style="font-family: Cookie">WILLIAM</span><span style="font-family: Cookie;color: #5383D3">Donkor.com</span></h1>
+                <button class="btn btn-info btn-sm" style="opacity: 0.8" type="button" id ="header" onclick="headerhandler()"><span style="font:bold 18px cookie"><span style="opacity: 1;color: #fff">Resume Page</span><span id="arsk"></span></button>
+
+            </header>
+        </div>
+        <!--
+                <div class="container-fluid" style="width: 80%;">
+                    <div id= "slideshow" data-ride="carousel" data-interval="4000" class="carousel fade-carousel slide">
+        
+                        <ol class="carousel-indicators">
+                            <li data-target="#slideshow" data-slide-to="0" class="active"></li>
+                            <li data-target="#slideshow" data-slide-to="1"></li>
+                            <li data-target="#slideshow" data-slide-to="2"></li>
+                            <li data-target="#slideshow" data-slide-to="3"></li>
+                            <li data-target="#slideshow" data-slide-to="4"></li>
+                        </ol>
+        
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img src="img/img-1.jpg" alt="1" class="img-responsive"/>
+        
+                            </div> 
+                            <div class="item"> <img src="img/img-2.jpg" alt="2" class="img-responsive"/></div>
+                            <div class="item"><img src="img/img-3.jpg" alt="3" class="img-responsive"/></div>
+                            <div class="item"><img src="img/img-4.jpg" alt="4" class="img-responsive"/></div>
+                            <div class="item"> <img src="img/img-5.jpg" alt="5"  class="img-responsive"/></div>
+                        </div>
+        
+                    </div>
+                </div>
+        -->
+        <div class="container" >
+            <div class="col-md-8 col-sm-12 col-md-offset-2">
+                <div class="panel panel-title" style="padding:5px;">
+                    <div class="panel-body">
+                        <h4><span class="title" style="font:italic 37px cookie">About Me</span></h4>
+                    </div>
+                </div>
+                <article>
+                    <span style="font:normal 20px cookie">W</span>elcome to the cyber home of <span style="color:#5383d3">William Kyere Donkor</span>, a cisco engineer and Java and Web Programmer for hire, William is a highly skilled professional committed to every project he works on. If you're looking for a network engineer or programmer you've come to the right place.
+
+                    Please use the buttons on the left to navigate around the site.
+                    Browse and drop me a line.
+
+                    Welcome to the World of Walsh, I hope you decide to stay for a while.
+                </article>
+            </div>
+        </div>
+        <!-- The content of your page would go here. -->
+
+
+
+        <footer class="footer-distributed">
+
+            <div class="footer-left">
+
+                <h3>william<span>donkor</span></h3>
+                <p class="footer-links">
+                    <a href="index.html">Home</a>
+                    ·
+                    <a href="resume.html">Resume</a>
+                    ·
+                    <a href="contact.html">Contact</a>
+                </p>
+
+                <p class="footer-company-name">William Donkor &copy; 2015</p>
+            </div>
+
+            <div class="footer-center">
+
+                <div>
+                    <i class="fa fa-map-marker"></i>
+                    <p> Kumasi , Ghana</p>
+
+                </div>
+
+                <div>
+                    <i class="fa fa-phone"></i>
+                    <p>+233 236395878</p>
+                </div>
+
+                <div>
+                    <i class="fa fa-envelope"></i>
+                    <p><a href="mailto:williamkyere@gmail.com">williamkyere@gmail.com</a></p>
+                </div>
+
+            </div>
+
+            <div class="footer-right">
+
+                <p class="footer-company-about">
+                    <span>Summary</span>
+                    A highly skilled IT Professional with expertise in Web Application and Network Engineering
+                </p>
+
+                <div class="footer-icons">
+
+                    <a href="https://www.facebook.com/william.donkor.94" target=_blank><i class="fa fa-facebook"></i></a>
+                    <a href="https://twitter.com/odonkatae" target=_blank><i class="fa fa-twitter"></i></a>
+                    <a href="https://gh.linkedin.com/pub/william-donkor/80/230/3b1" target=_blank><i class="fa fa-linkedin"></i></a>
+                    <a href="https://github.com/williamkyere" target= _blank><i class="fa fa-github"></i></a>
+
+                </div>
+
+            </div>
+
+        </footer>
+    </body>
+
+</html>

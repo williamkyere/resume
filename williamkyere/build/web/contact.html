@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Contact Page</title>
+        <link rel="shortcut icon" href="img/logo.png" />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/jquery.js" type="text/javascript" ></script>
+        <script type="text/javascript" src="js/jquery.validate.js"></script>
+        <script src="js/bootstrap.min.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="css/main.min.css" />
+
+        <link rel="stylesheet" href="css/footer-distributed-with-address-and-phones.css" type="text/css">
+
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+
+        <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+
+        <script type="text/javascript">
+            $(window).ready(function () {
+                if (window.ActiveXObject) {
+                    $("#arsk").html("&#8656;");
+                } else {
+                    $("#arsk").html("&DoubleLeftArrow;");
+                }
+
+            });
+            function getInput(id) {
+                return escape(document.getElementById(id).value);
+            }
+            $(document).ready(function () {
+                $("form").validate({
+                    error: function () {
+                        $(this).addClass("error");
+                    }
+                });
+                $("#sd").click(function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    $data = $("form").serialize();
+                    var name = getInput("name");
+                    var phone = getInput("phone");
+                    var email = getInput("mail");
+                    var msg = getInput("msg");
+                    if (name === '' || phone === '' || email === '' || msg === '') {
+                        $("#errskt").modal('show');
+                    } else {
+                        $("#dial").modal('show');
+                        $("form").get("mysite", $data, function () {
+                            $(this).resetForm();
+                        });
+                        $("form").trigger('submit', function (e) {
+                            e.preventDefault();
+                        });
+                    }
+                });
+            });</script>
+
+        <style >
+
+
+            li > a{
+                border-bottom: 2px solid #333;
+            }
+            li > a:hover{
+                border-bottom:2px solid #5383d3;
+                z-index: 1;
+            }
+            li > a:active{
+                border-bottom:2px solid  #ffc000;
+                z-index: 1;
+            }
+
+            input.error {
+                color: red;
+                border:1px solid #ff3333;
+            }
+
+            .link_active{
+                color: #fff;
+                border-bottom:2px solid #ffc000;
+                z-index: 1;
+            }
+            #top{
+
+                background-repeat: no-repeat;
+                background-image: url(img/keyboard.jpg);
+            }
+            header{
+                //  background-color:#ff3300;
+                border-radius: 5px;
+
+            }
+        </style>
+    </head>
+    <body>
+        <div id="top">
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">             
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#tg">
+                            <span class="sr-only" >Toggle navigation </span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="http://resume-williamkyere.rhcloud.com" style="color:#FFF">William<i style="color: #5383d3;">Donkor</i></a>
+
+                    </div>
+                    <div class="collapse navbar-collapse navbar-right" id="tg">
+                        <ul class="nav navbar-nav">
+                            <li><a  href="index.html">Home<span class="sr-only">(current)</span></a></li>
+                            <li><a  href="resume.html">Resume<span class="sr-only">(current)</span></a></li>
+                            <li><a  class ="link_active" href="contact.html">Contact<span class="sr-only">(current)</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav> 
+            <header class="container page-header">
+                <h1 class="h2" style="color: #fff;">Welcome to <span style="font-family: Cookie">WILLIAM</span><span style="font-family: Cookie;color: #5383D3">Donkor.com</span></h1>
+                <button class="btn btn-info btn-sm" type="button" style="opacity: 0.8" id ="header" onclick="headerhandler()"><span style="font:bold 18px cookie"><span style="opacity: 1;color: #fff"><span id="arsk"></span>Home Page</span></button>
+
+            </header>
+
+        </div>
+        <!-- .........handles the buttons click event ---->
+        <script type="text/javascript">
+            function headerhandler() {
+                $("#header").click(function (e) {
+                    //  e.preventDefault();
+
+                    $("#header").fadeOut(300);
+                    $(this).fadeIn(100);
+                    window.location.href = "index.html";
+                });
+            }
+        </script>
+        <!--
+                <header class="container page-header">
+        
+                    <h1 class="h1" style="font-style: oblique">Welcome to williamkyere.com</h1>
+        
+                    <button class="btn btn-info btn-sm" type="button" id ="header" onclick="headerhandler()">&DoubleLongLeftArrow;<span style="font:italic 18px cookie;">Home page</span></button>
+        
+                </header>
+        -->
+        <div class="container">
+            <div class="col-md-8 col-sm-12 col-md-offset-1">
+                <form  action="mysite" method="POST" class="form-horizontal">
+                    <div class="form-group">
+                        <label for="name" class="col-sm-2 control-label">Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="name" id="name" placeholder="Mr Jon Jones">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="mail" class="col-sm-2 control-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" name="email" id="mail" placeholder="name@example.com">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="name" class="col-sm-2 control-label">Phone</label>
+                        <div class="col-sm-10">
+                            <input type="tel" class="form-control" id="phone" name="phone" placeholder= "+000 000 0000">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Send As</label> 
+                        <div class="col-sm-10">
+                            <select id="msgType" name="sendType" class="form-control">
+                                <option value="EM">Email</option>
+                              <!--  <option value="SMS">SMS Message</option>-->
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="name" class="col-sm-2 control-label">Name</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" id= "msg" name="msg" style="height: 166px" ></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <input type="submit" data-toggle="modal" 
+                                   id="sd" class="btn bg-primary btn-lg" value="Click to Send "
+                                   />
+                        </div>
+
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+        <!-- ..................Confirm dialog using ..................-->
+
+        <div class="modal" id="dial">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h3 class="modal-title" style="text-align: center;">Message Sent!!</h3>
+                    </div>
+                    <div class="modal-body">
+                        I will get back to you soon!!
+                        redirecting to home page!
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-success" id="ss" data-dismiss="modal">Thank you!!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ..................Confirm for error ..................-->
+
+        <div class="modal" id="errskt">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h3 class="modal-title alert-danger" style="text-align: center;">Error Please Check the message</h3>
+                    </div>
+                    <div class="modal-body">
+                        You message is empty
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-danger" data-dismiss="modal">Try again!!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <footer class="footer-distributed">
+
+            <div class="footer-left">
+
+                <h3>william<span>kyere</span></h3>
+                <p class="footer-links">
+                    <a href="index.html">Home</a>
+                    ·
+                    <a href="resume.html">Resume</a>
+                    ·
+                    <a href="contact.html">Contact</a>
+                </p>
+
+                <p class="footer-company-name">William Kyere &copy; 2015</p>
+            </div>
+
+            <div class="footer-center">
+
+                <div>
+                    <i class="fa fa-map-marker"></i>
+                    <p> Kumasi , Ghana</p>
+
+                </div>
+
+                <div>
+                    <i class="fa fa-phone"></i>
+                    <p>+233 236395878</p>
+                </div>
+
+                <div>
+                    <i class="fa fa-envelope"></i>
+                    <p><a href="mailto:williamkyere@gmail.com">williamkyere@gmail.com</a></p>
+                </div>
+
+            </div>
+
+            <div class="footer-right">
+
+                <p class="footer-company-about">
+                    <span>Summary</span>
+                    A highly skilled IT Professional with expertise in Web Application and Network Engineering
+                </p>
+
+                <div class="footer-icons">
+
+                    <a href="https://www.facebook.com/william.donkor.94" target=_blank><i class="fa fa-facebook"></i></a>
+                    <a href="https://twitter.com/odonkatae" target=_blank><i class="fa fa-twitter"></i></a>
+                    <a href="https://gh.linkedin.com/pub/william-donkor/80/230/3b1" target=_blank><i class="fa fa-linkedin"></i></a>
+                    <a href="https://github.com/williamkyere" target= _blank><i class="fa fa-github"></i></a>
+
+                </div>
+
+            </div>
+
+        </footer>
+    </body>
+
+</html>
